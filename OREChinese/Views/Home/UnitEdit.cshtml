@@ -1,0 +1,31 @@
+﻿@model OREChinese.Data.Unit
+@{
+    ViewData["Title"] = "单元列表";
+}
+
+<div>
+    @using (Html.BeginForm("UnitEdit", "manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.Id)
+        <div>
+            @Html.TextBoxFor(m => m.Name)
+            <input type="file" name="image" id="image" />
+        </div>
+        
+        <button type="submit">保存</button>
+    }
+
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+</div>
+
+@* <%
+forea(xxxx)
+{
+    response.write("<div>" admin _"</div>")"
+}
+%> *@

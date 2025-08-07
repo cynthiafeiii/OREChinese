@@ -1,0 +1,45 @@
+﻿@model System.Collections.Generic.List<OREChinese.Data.Unit>
+@{
+    ViewData["Title"] = "单元列表";
+}
+<div>
+    <button onclick="location.href=unitadd"></button> @* 把unitedit改成unitadd了 *@
+    <a href="UnitAdd">新增</a> @* 把unitedit改成unitadd了 *@
+
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table border="1">
+    <tr>
+        <th>名称</th>
+        <th>视频</th>
+        <th>操作</th>
+    </tr>
+    @foreach (var unit in Model)
+    {
+        <tr>
+            <td>@unit.Name</td>
+            <td>
+                @Html.ActionLink("视频", "Video", new { id = unit.Id })
+            </td>
+            <td>
+                @Html.ActionLink("修改", "UnitEdit", new { id = unit.Id })
+                |
+                @Html.ActionLink("删除", "UnitDelete", new { id = unit.Id }, new { onclick = "return confirm('确定要删除吗？')" })
+            </td>
+
+        </tr>
+    }
+</table>
+
+
+@* <%
+forea(xxxx)
+{
+    response.write("<div>" admin _"</div>")"
+}
+%> *@

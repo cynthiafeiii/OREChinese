@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css?2">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <title>OER Project 中文字幕组</title>
+</head>
+
+
+<body>
+    <div id="logo" style="float:left; margin-top: 7.5vh; margin-left: 6vh">
+        <a href="#" rel="nofollow">
+            <img src="OER-logoDark.svg" id="toplogo" width="214" alt="OER Project 中文字幕组" title="OER Project 中文字幕组">
+        </a>
+    </div>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li onclick="location.href='/'">最近更新</li>
+                <li onclick="location.href='category'">视频列表</li>
+                <li>支持与鸣谢</li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <div class="search">
+        <input type="text" id="searchBar" name="searchBar" placeholder="请输入关键词搜索" ;>
+        <i class="fa fa-search fa-lg" id="searchIcon" onclick="changeColor()" style="width: 32px; height: 32px; margin-top: 18px; margin-left: 80px; padding: 0;"></i>
+    </div>
+
+    <button id="nightModeBtn" onclick="changeColor()"></button>
+
+    <div style="clear: left; padding-top: 70px; text-align: center;">
+        <h1><a style="color: var(--darkblue);">网站服务维护</a></h1>
+        <h3><a style="color: var(--darkblue);">莫迪</a></h3>
+        <br />
+        <br />
+        <h1><a style="color: var(--darkblue);">OER PROJECT 官方网址</a></h1>
+        <h3><a style="color:#0000EE;" href="https://www.oerproject.com" target="_blank" rel="noopener noreferrer">https://www.oerproject.com</a></h3>
+        <br />
+        <br />
+        <h1><a style="color: var(--darkblue);">OER PROJECT YouTube官方频道</a></h1>
+        <h3><a style="color:#0000EE;" href="https://www.youtube.com/channel/UCNQsm_PPL5jZhcuoowPZDQA" target="_blank" rel="noopener noreferrer">https://www.youtube.com/channel/UCNQsm_PPL5jZhcuoowPZDQA</a></h3>
+    </div>
+
+
+
+    <script>
+        function changeColor(){
+            let color = document.getElementsByTagName('html')[0].className;
+            if (color == 'night'){
+                document.getElementsByTagName('html')[0].className = ""
+                document.body.style.backgroundColor = "white";
+                var img = document.getElementById("toplogo");
+                img.src= "OER-logoDark.svg";
+
+            }else{
+                document.getElementsByTagName('html')[0].className = "night"
+                document.body.style.backgroundColor = "rgb(25, 37, 53)";
+                var img = document.getElementById("toplogo");
+                img.src= "OER-logo.svg";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

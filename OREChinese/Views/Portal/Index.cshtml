@@ -1,0 +1,88 @@
+﻿@model System.Collections.Generic.List<OREChinese.Data.Video>
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css?16">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <title>OER Project 中文字幕组</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+    <div id="logo" style="float:left; margin-top: 7.5vh; margin-left: 6vh">
+        <a href="#" rel="nofollow">
+            <img src="OER-logoDark.svg" id="toplogo" width="214" alt="OER Project 中文字幕组" title="OER Project 中文字幕组">
+        </a>
+    </div>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li>最近更新</li>
+                <li onclick="location.href='category'">视频列表</li>
+                <li onclick="location.href='support'">支持与鸣谢</li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--搜索框-->
+    <div class="search">
+        <input type="text" id="searchBar" name="searchBar" placeholder="请输入关键词搜索" ;>
+        <i class="fa fa-search fa-lg" id="searchIcon" onclick="changeColor()" style="width: 32px; height: 32px; margin-top: 18px; margin-left: 80px; padding: 0;"></i>
+    </div>
+
+    <button id="nightModeBtn" onclick="changeColor()"></button>
+
+
+    @* <div style="clear: left; margin-bottom: 450px"> *@
+    <div class="nbox">
+        @foreach (var video in Model)
+        {
+            <div class="updatevideo" style='width:500px; cursor: pointer;' onclick="location.href='@video.URL'">
+                <img src="uploads/@video.ImageName" width="500" />
+                <h1 class="updatetext">@video.Name</h1>
+            </div>
+        }        
+    </div>
+
+@*    <div class="nbox">
+        @foreach (var unit in Model)
+        {
+            <div class="onethird">
+                <img src="uploads/20250608133530.jpg" style="width: 100%;" />
+                <h1 class="categorytext">@unit.Name</h1>
+            </div>
+        }
+    </div> *@
+
+
+    <script>
+        function changeColor() {
+            let color = document.getElementsByTagName('html')[0].className;
+            if (color == 'night') {
+                document.getElementsByTagName('html')[0].className = ""
+                document.body.style.backgroundColor = "white";
+                var img = document.getElementById("toplogo");
+                img.src = "OER-logoDark.svg";
+
+            } else {
+                document.getElementsByTagName('html')[0].className = "night"
+                document.body.style.backgroundColor = "rgb(25, 37, 53)";
+                var img = document.getElementById("toplogo");
+                img.src = "OER-logo.svg";
+            }
+        }
+    </script>
+
+</body>
+</html>
